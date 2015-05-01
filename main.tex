@@ -2,7 +2,7 @@
 %% V1.4
 %% 2012/12/27
 %% by Michael Shell
-%% See: 
+%% See:
 %% http://www.michaelshell.org/
 %% for current contact information.
 %%
@@ -20,7 +20,7 @@
 %% Legal Notice:
 %% This code is offered as-is without any warranty either expressed or
 %% implied; without even the implied warranty of MERCHANTABILITY or
-%% FITNESS FOR A PARTICULAR PURPOSE! 
+%% FITNESS FOR A PARTICULAR PURPOSE!
 %% User assumes all risk.
 %% In no event shall IEEE or any contributor to this code be liable for
 %% any damages or losses, including, but not limited to, incidental,
@@ -85,7 +85,7 @@
 % \documentclass[10pt,journal,compsoc]{../sty/IEEEtran}
 
 
-% For Computer Society journals, IEEEtran defaults to the use of 
+% For Computer Society journals, IEEEtran defaults to the use of
 % Palatino/Palladio as is done in IEEE Computer Society journals.
 % To go back to Times Roman, you can use this code:
 %\renewcommand{\rmdefault}{ptm}\selectfont
@@ -156,7 +156,7 @@
 % package with the nocompress option which is supported by cite.sty v4.0
 % and later.
 %
-% Note also the use of a CLASSOPTION conditional provided by 
+% Note also the use of a CLASSOPTION conditional provided by
 % IEEEtran.cls V1.7 and later.
 
 
@@ -186,7 +186,7 @@
 % graphicx was written by David Carlisle and Sebastian Rahtz. It is
 % required if you want graphics, photos, etc. graphicx.sty is already
 % installed on most LaTeX systems. The latest version and documentation
-% can be obtained at: 
+% can be obtained at:
 % http://www.ctan.org/tex-archive/macros/latex/required/graphics/
 % Another good source of documentation is "Using Imported Graphics in
 % LaTeX2e" by Keith Reckdahl which can be found at:
@@ -381,8 +381,8 @@
 % \let\MYoriglatexcaption\caption
 % \renewcommand{\caption}[2][\relax]{\MYoriglatexcaption[#2]{#2}}
 %\fi
-% endfloat.sty was written by James Darrell McCauley, Jeff Goldberg and 
-% Axel Sommerfeldt. This package may be useful when used in conjunction with 
+% endfloat.sty was written by James Darrell McCauley, Jeff Goldberg and
+% Axel Sommerfeldt. This package may be useful when used in conjunction with
 % IEEEtran.cls'  captionsoff option. Some IEEE journals/societies require that
 % submissions have lists of figures/tables at the end of the paper and that
 % figures/tables without any captions are placed on a page by themselves at
@@ -411,7 +411,7 @@
 % http://www.ctan.org/tex-archive/macros/latex/contrib/endfloat/
 %
 % The IEEEtran \ifCLASSOPTIONcaptionsoff conditional can also be used
-% later in the document, say, to conditionally put the References on a 
+% later in the document, say, to conditionally put the References on a
 % page by themselves.
 
 
@@ -446,8 +446,8 @@
 % utility, the thumbpdf *Perl script* is needed to make these .tpm or .tpt
 % thumbnail files from a .ps or .pdf version of the document (which obviously
 % does not yet contain pdf thumbnails). Thus, one does a:
-% 
-% thumbpdf filename.pdf 
+%
+% thumbpdf filename.pdf
 %
 % to make a filename.tpt, and:
 %
@@ -459,7 +459,7 @@
 % .tpm files if the main document changes and then to recompile the
 % document to incorporate the revised thumbnails to ensure that thumbnails
 % match the actual pages. It is easy to forget to do this!
-% 
+%
 % Unix systems come with a Perl interpreter. However, MS Windows users
 % will usually have to install a Perl interpreter so that the thumbpdf
 % script can be run. The Ghostscript PS/PDF interpreter is also required.
@@ -493,7 +493,7 @@ pdfkeywords={Computer Society, IEEEtran, journal, LaTeX, paper,
 % DVI and PDF output. Perhaps surprisingly, all the other PDF features
 % (PDF bookmarks, thumbnails, etc.) can be preserved in
 % .tex->.dvi->.ps->.pdf workflow if the respective packages/scripts are
-% loaded/invoked with the correct driver options (dvips, etc.). 
+% loaded/invoked with the correct driver options (dvips, etc.).
 % As most IEEE papers use URLs sparingly (mainly in the references), this
 % may not be as big an issue as with other publications.
 %
@@ -547,7 +547,7 @@ pdfkeywords={Computer Society, IEEEtran, journal, LaTeX, paper,
 % paper title
 % can use linebreaks \\ within to get better formatting as desired
 % Do not put math or special symbols in the title.
-\title{ArduBot: Robot autónomo mediante sensores}
+\title{ArduBot\\ Robot autónomo mediante sensores}
 %
 %
 % author names and IEEE memberships
@@ -567,7 +567,7 @@ pdfkeywords={Computer Society, IEEEtran, journal, LaTeX, paper,
 % \IEEEcompsocthanksitem becomes a line break with idention. This
 % facilitates dual compilation, although admittedly the differences in the
 % desired content of \author between the different types of papers makes a
-% one-size-fits-all approach a daunting prospect. For instance, compsoc 
+% one-size-fits-all approach a daunting prospect. For instance, compsoc
 % journal papers have the author affiliations above the "Manuscript
 % received ..."  text while in non-compsoc journals this is reversed. Sigh.
 
@@ -582,10 +582,10 @@ pdfkeywords={Computer Society, IEEEtran, journal, LaTeX, paper,
 %\IEEEcompsocthanksitem J. Doe and J. Doe are with Anonymous University.}% <-this % %stops a space
 %\thanks{Manuscript received April 19, 2005; revised December 27, 2012.}}
 
-% note the % following the last \IEEEmembership and also \thanks - 
+% note the % following the last \IEEEmembership and also \thanks -
 % these prevent an unwanted space from occurring between the last author name
 % and the end of the author line. i.e., if you had this:
-% 
+%
 % \author{....lastname \thanks{...} \thanks{...} }
 %                     ^------------^------------^----Do not want these spaces!
 %
@@ -607,7 +607,7 @@ pdfkeywords={Computer Society, IEEEtran, journal, LaTeX, paper,
 {Shell \MakeLowercase{\textit{et al.}}: Bare Advanced Demo of IEEEtran.cls for Journals}
 % The only time the second header will appear is for the odd numbered pages
 % after the title page when using the twoside option.
-% 
+%
 % *** Note that you probably will NOT want to include the author's ***
 % *** name in the headers of peer review papers.                   ***
 % You can use \ifCLASSOPTIONpeerreview for conditional compilation here if
@@ -704,17 +704,17 @@ Computer Society, IEEEtran, journal, \LaTeX, paper, template.
 \section{Introducción}
 % The very first letter is a 2 line initial drop letter followed
 % by the rest of the first word in caps (small caps for compsoc).
-% 
+%
 % form to use if the first word consists of a single letter:
 % \IEEEPARstart{A}{demo} file is ....
-% 
+%
 % form to use if you need the single drop letter followed by
 % normal text (unknown if ever used by IEEE):
 % \IEEEPARstart{A}{}demo file is ....
-% 
+%
 % Some journals put the first two words in caps:
 % \IEEEPARstart{T}{his demo} file is ....
-% 
+%
 % Here we have the typical use of a "T" for an initial drop letter
 % and "HIS" in caps to complete the first word.
 \IEEEPARstart{T}{his} demo file is intended to serve as a ``starter file''
@@ -725,10 +725,61 @@ IEEEtran.cls version 1.8 and later.
 I wish you the best of success.
 
 \hfill mds
- 
+
 \hfill December 27, 2012
 
-\section{Comparativa}
+legal
+
+\section{Especificacion del robot}
+\label{sec:Especificaciondelrobot}
+
+\subsection{Sensores}
+\label{subsec:Sensores}
+
+\section{Misiones}
+
+\subsection{Mision 1.1}
+\label{sub:Mision11}
+
+
+\subsection{Mision 1.2}
+\label{sub:Mision12}
+
+
+\subsection{Mision 2.1}
+\label{sub:Mision21}
+
+
+\subsection{Mision 2.2}
+\label{sub:Mision22}
+
+
+\subsection{Mision 3.1}
+\label{sub:Mision31}
+
+
+\subsection{Mision 3.2}
+\label{sub:Mision32}
+
+
+\subsection{Mision 4}
+\label{sub:Mision4}
+
+
+\subsection{Mision 5}
+\label{sub:Mision5}
+
+
+\section{Misiones Finales}
+\label{sec:MisionesFinales}
+
+\subsection{Aparcamiento}
+\label{sub:Aparcamiento}
+
+\subsection{Visión Artificial}
+\label{sub:Vision Artificial}
+
+
 % An example of a floating figure using the graphicx package.
 % Note that \label must occur AFTER (or within) \caption.
 % For figures, \caption should occur after the \includegraphics.
@@ -745,7 +796,7 @@ I wish you the best of success.
 %\begin{figure}[!t]
 %\centering
 %\includegraphics[width=2.5in]{myfigure}
-% where an .eps filename suffix will be assumed under latex, 
+% where an .eps filename suffix will be assumed under latex,
 % and a .pdf suffix will be assumed for pdflatex; or what has been declared
 % via \DeclareGraphicsExtensions.
 %\caption{Simulation Results.}
@@ -762,7 +813,7 @@ I wish you the best of success.
 % The subfigure \label commands are set within each subfloat command,
 % and the \label for the overall figure must come after \caption.
 % \hfil is used as a separator to get equal spacing.
-% Watch out that the combined width of all the subfigures on a 
+% Watch out that the combined width of all the subfigures on a
 % line do not exceed the text width or a line break will occur.
 %
 %\begin{figure*}[!t]
@@ -781,7 +832,7 @@ I wish you the best of success.
 % reference/describe all of them (a), (b), etc., within the main caption.
 
 
-% An example of a floating table. Note that, for IEEE style tables, the 
+% An example of a floating table. Note that, for IEEE style tables, the
 % \caption command should come BEFORE the table. Table text will default to
 % \footnotesize as IEEE normally uses this smaller font for tables.
 % The \label must come after \caption as always.
@@ -884,7 +935,7 @@ The authors would like to thank...
 \end{thebibliography}
 
 % biography section
-% 
+%
 % If you have an EPS/PDF photo (graphicx package needed) extra braces are
 % needed around the contents of the optional argument to biography to prevent
 % the LaTeX parser from getting confused when it sees the complicated
