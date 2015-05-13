@@ -1,4 +1,5 @@
-#include "../Config/configuracion.h"
+
+#include <configuracion.h>
 
 #include <Motors.h>
 

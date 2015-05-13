@@ -1,0 +1,11 @@
+#######################################
+# Syntax Coloring Map Motors
+#######################################
+Motor	KEYWORD1
+run	KEYWORD2
+turnLeft	KEYWORD2
+turnRight	KEYWORD2
+reset	KEYWORD2
+calculaCuentasAngulo	KEYWORD2
+calculaCuentasDistancia	KEYWORD2
+pause	KEYWORD2
