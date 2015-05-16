@@ -93,4 +93,3 @@ void parar() {
   sDerecho.writeMicroseconds(SERVO_PARADO);
   sIzquierdo.writeMicroseconds(SERVO_PARADO);
 }
-
