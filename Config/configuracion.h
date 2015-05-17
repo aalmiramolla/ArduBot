@@ -21,9 +21,16 @@ const unsigned int SERVO_IZQUIERDO_ATRAS = 2000;
 const unsigned int SERVO_MIN = 1000;
 const unsigned int SERVO_MAX = 2000;
 
+const unsigned int SERVO_BRAZO = 6;
+
+const unsigned int SERVO_BRAZO_ARRIBA = 90;
+const unsigned int SERVO_BRAZO_ABAJO = 0;
+
 //const unsigned int TIEMPO_GIRO90 = 617;
 const unsigned int TIEMPO_GIRO90 = 545;
 const unsigned int TIEMPO_GIRO180 = 1090;
+const unsigned int TIEMPO_GIRO45 = 290;
+
 const unsigned int COM_TIEMPO_CONTROL = 150;
 const unsigned int COM_TIEMPO_CONTROL_AVANZAR = 2000;
 const unsigned int TIEMPO_PASO_ADELANTE = 435;
@@ -41,6 +48,7 @@ int tonesSpeaker[] = {261, 277, 294, 311, 330, 349, 370, 392, 415, 440};
 //Final de Carrera
 const int pinES = 11;
 
+const int ledPin = 13;
 
 // PROTOCOLO DE COMUNICACIÓN
 const int COM_ADELANTE = 10;
