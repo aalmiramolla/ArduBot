@@ -4,9 +4,12 @@
 *
 *****************************************************************************************************************/
 //IR 
-const unsigned int NUM_SENSORS = 6;
+const unsigned int NUM_SENSORS = 2;
 const unsigned int TIMEOUT = 2500;
 const unsigned int EMITTER_PIN = 2;
+const unsigned int VALOR_NEGRO = 500;
+
+
 
 //Servos
 const unsigned int SERVO_PARADO = 1500;
@@ -21,7 +24,7 @@ const unsigned int SERVO_IZQUIERDO_ATRAS = 2000;
 const unsigned int SERVO_MIN = 1000;
 const unsigned int SERVO_MAX = 2000;
 
-const unsigned int SERVO_BRAZO = 6;
+
 
 const unsigned int SERVO_BRAZO_ARRIBA = 90;
 const unsigned int SERVO_BRAZO_ABAJO = 0;
@@ -37,7 +40,7 @@ const unsigned int TIEMPO_PASO_ADELANTE = 435;
 
 const unsigned int PIN_SERVO_DERECHO = 9;
 const unsigned int PIN_SERVO_IZQUIERDO = 10;
-
+const unsigned int SERVO_BRAZO = 6;
 //ZUMBADOR
 // Zumbador
 const int SPEAKER = 12;
