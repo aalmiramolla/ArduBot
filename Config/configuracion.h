@@ -38,8 +38,12 @@ const int numTonesSpeaker = 10;
 
 int tonesSpeaker[] = {261, 277, 294, 311, 330, 349, 370, 392, 415, 440};
 
+//Final de Carrera
+const int pinES = 11;
+
+
 // PROTOCOLO DE COMUNICACIÓN
-const int COM_ADELANTE = 10;12
+const int COM_ADELANTE = 10;
 const int COM_ATRAS = 11;
 const int COM_IZQUIERDA = 12;
 const int COM_DERECHA = 13;
