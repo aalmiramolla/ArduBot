@@ -24,7 +24,8 @@ const unsigned int SERVO_MAX = 2000;
 //const unsigned int TIEMPO_GIRO90 = 617;
 const unsigned int TIEMPO_GIRO90 = 545;
 const unsigned int TIEMPO_GIRO180 = 1090;
-
+const unsigned int COM_TIEMPO_CONTROL = 150;
+const unsigned int COM_TIEMPO_CONTROL_AVANZAR = 2000;
 const unsigned int TIEMPO_PASO_ADELANTE = 435;
 
 const unsigned int PIN_SERVO_DERECHO = 9;
@@ -37,3 +38,18 @@ const int numTonesSpeaker = 10;
 
 int tonesSpeaker[] = {261, 277, 294, 311, 330, 349, 370, 392, 415, 440};
 
+// PROTOCOLO DE COMUNICACIÓN
+const int COM_ADELANTE = 10;12
+const int COM_ATRAS = 11;
+const int COM_IZQUIERDA = 12;
+const int COM_DERECHA = 13;
+
+const int COM_ESPACIO = 20;
+
+const int COM_SUMA = 30;
+const int COM_RESTA = 31;
+
+const int COM_BRAZO_ARRIBA = 40;
+const int COM_BRAZO_ABAJO = 41;
+
+//FIN DE PROTOCOLO DE COMUNICACIÓN... POR EL MOMENTO.
