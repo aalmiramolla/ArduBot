@@ -31,7 +31,7 @@ const unsigned int SERVO_BRAZO_ABAJO = 0;
 
 //const unsigned int TIEMPO_GIRO90 = 617;
 const unsigned int TIEMPO_GIRO90 = 545;
-const unsigned int TIEMPO_GIRO180 = 1090;
+const unsigned int TIEMPO_GIRO180 = 1050;
 const unsigned int TIEMPO_GIRO45 = 290;
 
 const unsigned int COM_TIEMPO_CONTROL = 150;
