@@ -6,7 +6,7 @@
 
 Servo sDerecho; // put your main code here, to run repeatedly:
 Servo sIzquierdo;
-const int ledPin = 13;
+//const int ledPin = 13;
 void avanzar(unsigned int tiempoAvance);
 void parar();
 void Speak();
