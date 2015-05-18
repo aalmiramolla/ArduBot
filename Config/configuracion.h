@@ -9,6 +9,8 @@ const unsigned int TIMEOUT = 2500;
 const unsigned int EMITTER_PIN = 2;
 const unsigned int VALOR_NEGRO = 500;
 
+// Ultra Sonido
+const unsigned char ULTRA_SOUND_PIN = 6;
 
 
 //Servos
@@ -40,7 +42,7 @@ const unsigned int TIEMPO_PASO_ADELANTE = 435;
 
 const unsigned int PIN_SERVO_DERECHO = 9;
 const unsigned int PIN_SERVO_IZQUIERDO = 10;
-const unsigned int SERVO_BRAZO = 6;
+const unsigned int SERVO_BRAZO = 11;
 //ZUMBADOR
 // Zumbador
 const int SPEAKER = 12;
@@ -49,7 +51,7 @@ const int numTonesSpeaker = 10;
 int tonesSpeaker[] = {261, 277, 294, 311, 330, 349, 370, 392, 415, 440};
 
 //Final de Carrera
-const int pinES = 11;
+const int pinES = 8;
 
 const int ledPin = 13;
 
