@@ -1,4 +1,5 @@
 #!/usr/bin/python
+# -*- coding: utf-8 -*-
 #librería que permite la interacción con Octave.
 #Librería para poder generar la Interfaz Gráfica.
 from tkinter import *
