@@ -40,9 +40,13 @@ const unsigned int COM_TIEMPO_CONTROL = 150;
 const unsigned int COM_TIEMPO_CONTROL_AVANZAR = 2000;
 const unsigned int TIEMPO_PASO_ADELANTE = 435;
 
+// BRAZO
 const unsigned int PIN_SERVO_DERECHO = 9;
 const unsigned int PIN_SERVO_IZQUIERDO = 10;
 const unsigned int SERVO_BRAZO = 11;
+const unsigned int PIN_BRAZO_IR_TRIG = 7;
+const unsigned int PIN_BRAZO_IR_ECHO = 5;
+
 //ZUMBADOR
 // Zumbador
 const int SPEAKER = 12;

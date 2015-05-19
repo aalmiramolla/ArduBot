@@ -1,16 +1,21 @@
 #include <Maxbotix.h>
 #include <PololuQTRSensors.h>
 #include <QTRSensors.h>
-#include<Servo.h>
+#include <Servo.h>
+#include <Ultrasonic.h>
+
 #include "../Config/configuracion.h"
 
 Servo sDerecho;
 Servo sIzquierdo;
 Servo sBrazo;
 
-void girarDerecha();
-void girarIzquierda();
+Ultrasonic ultrasonic(PIN_BRAZO_IR_TRIG,PIN_BRAZO_IR_ECHO); // (Trig PIN, Echo PIN);
+
+void girarDerecha(unsigned int tiempo);
+void girarIzquierda(unsigned int tiempo);
 void avanzar(unsigned int tiempo);
+void avanzarATope();
 void parar();
 void Speak();
 void retroceder(unsigned int tiempo);
@@ -19,6 +24,23 @@ void bajarBrazo();
 void accionEspacio();
 void aumentarVelocidad();
 void disminuirVelocidad();
+void aparcar();
+bool timeCompleted();
+//---------------------------------------------FUNCTION PROTOTYPE---------------------//
+void measureDistance();  // 
+
+unsigned long beginTimer = 0;
+unsigned long endTimer = 0;
+unsigned long waitTime = 1000;
+
+
+int distance; // An interger variable that will contain the distance measured from the returning pulse.
+unsigned long pulseduration=0; // A long varible that will contain the number of milisecond of the returning pulse.
+unsigned int i = 0; 
+int distanceMAX = 0;
+int distanciaAparcar = 0;
+bool encontradoPosible = false;
+int umbralDeError = 0;
 
 int velocidad = 0;
 void setup() {
@@ -28,58 +50,60 @@ void setup() {
   Serial.println("Empezamos");
   sDerecho.attach(PIN_SERVO_DERECHO,SERVO_MIN,SERVO_MAX);
   sIzquierdo.attach(PIN_SERVO_IZQUIERDO,SERVO_MIN,SERVO_MAX);
+  sBrazo.attach(SERVO_BRAZO);
+  subirBrazo();
   delay(500);
-  delay(3000);;
+  pinMode(13,OUTPUT);
+  digitalWrite(13,OUTPUT);
+//  measureDistance();
+//  distanceMAX = distance;
+  //Serial.println(distanceMAX);
+  delay(2000);
+  
+  avanzarATope();
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-  retroceder(400);
-  girarIzquierda();
-  retroceder(400);
-  girarIzquierda();
-  retroceder(700);
-  girarDerecha();
-  girarDerecha();
-  Speak();
-  delay(5000);
- /* while(Serial.available() > 0)
-  {
-     int codigo = Serial.parseInt();
-      Serial.println("He leido");
-      Serial.println(codigo);
-       if(codigo == COM_ADELANTE)
-       {
-         avanzar(100);
-       } else if(codigo == COM_ATRAS)
-       {
-         retroceder(100);
-       } else if(codigo == COM_IZQUIERDA)
-       {
-         girarIzquierda();
-       } else if(codigo == COM_DERECHA)
-       {
-         girarDerecha();
-       } else if(codigo == COM_ESPACIO)
-       {
-         accionEspacio(); 
-       } else if(codigo == COM_SUMA)
-       {
-        aumentarVelocidad();
-       } else if(codigo == COM_RESTA)
-       {
-        disminuirVelocidad();
-       } else if(codigo == COM_BRAZO_ARRIBA)
-        {
-         subirBrazo();
-        }else if(codigo == COM_BRAZO_ABAJO)
-       {
-        bajarBrazo();
-       } else {
-        Serial.println(" El codigo recibido no es valido.");
-       }
-  }
-*/
+  measureDistance();
+  Serial.println(distance);
+  //Serial.println(encontradoPosible);
+  if(distance > 30){
+    Serial.println("IF");
+    if(beginTimer == 0) {
+       Serial.println("Empiezo a contar");
+      beginTimer = millis();
+    }
+    }
+    else {
+        Serial.println("ELSE Begin");
+        Serial.println(beginTimer);
+        Serial.println("ELSE END");
+      Serial.println(endTimer);
+        if(beginTimer != 0)
+            endTimer = millis();
+    if(timeCompleted())
+    {
+      Serial.println("Aparco");
+      Serial.println(beginTimer);
+      Serial.println(endTimer);
+      parar();
+      delay(1000);
+      aparcar();
+    } else 
+        avanzarATope();
+    }
+}
+
+bool timeCompleted()
+{
+   if(waitTime < (endTimer - beginTimer))
+      return true;
+   return false; 
+}
+
+void measureDistance() 
+{
+  distance = ultrasonic.Ranging(CM); // THE LONG VALUE WILL BE AUTOMATICALLY CONVERTED INTO INTEGER
 }
 
 void Speak()
@@ -92,7 +116,7 @@ void Speak()
   noTone(SPEAKER);
 }
 
-void girarIzquierda()
+void girarIzquierda(unsigned int tiempo)
 {
   Serial.println("Giro Izquierda");
   sDerecho.writeMicroseconds(SERVO_PARADO);
@@ -100,11 +124,11 @@ void girarIzquierda()
   delay(30);
   sDerecho.writeMicroseconds( SERVO_DERECHO_ADELANTE);
   sIzquierdo.writeMicroseconds(SERVO_IZQUIERDO_ATRAS);
-  delay(COM_TIEMPO_CONTROL);
+  delay(tiempo);
   parar();
 }
 
-void girarDerecha()
+void girarDerecha(unsigned int tiempo)
 {
   Serial.println("Giro Derecha");
   sDerecho.writeMicroseconds(SERVO_PARADO);
@@ -112,7 +136,7 @@ void girarDerecha()
   delay(30);
   sDerecho.writeMicroseconds(SERVO_DERECHO_ATRAS);
   sIzquierdo.writeMicroseconds(SERVO_IZQUIERDO_ADELANTE);
-  delay(COM_TIEMPO_CONTROL);
+  delay(tiempo);
   parar();
  
 }
@@ -124,22 +148,14 @@ void avanzar(unsigned int tiempo) {
    sDerecho.writeMicroseconds(SERVO_DERECHO_AVANZAR_CORRECCION + velocidad);
    sIzquierdo.writeMicroseconds(SERVO_IZQUIERDO_AVANZAR_CORRECCION-velocidad);
    delay(tiempo);
-   /*while(posibleCorte < 4)
-   {
-     int codigo = Serial.parseInt();
-      if(codigo == COM_ESPACIO)
-      {
-        Serial.println("Accion Espacio");
-        parar();
-        break;
-      }
-      else
-      {
-        delay(500);
-      }
-    posibleCorte++;
-   }*/
    parar();
+}
+
+void avanzarATope()
+{
+  Serial.println("Avanzo a tope");
+   sDerecho.writeMicroseconds(SERVO_DERECHO_AVANZAR_CORRECCION + velocidad);
+   sIzquierdo.writeMicroseconds(SERVO_IZQUIERDO_AVANZAR_CORRECCION-velocidad);
 }
 
 void retroceder(unsigned int tiempo) {
@@ -189,6 +205,19 @@ void disminuirVelocidad()
 {
   Serial.println("Disminuyo");
   velocidad = velocidad - 100;
+}
+
+void aparcar()
+{
+  retroceder(400);
+  girarIzquierda(COM_TIEMPO_CONTROL);
+  retroceder(400);
+  girarIzquierda(COM_TIEMPO_CONTROL);
+  retroceder(800);
+  girarDerecha(COM_TIEMPO_CONTROL);
+  girarDerecha(COM_TIEMPO_CONTROL+20);
+  Speak();
+  delay(5000);
 }
 
 void aumentarVelocidad()
