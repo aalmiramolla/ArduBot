@@ -118,6 +118,7 @@ along with .  If not, see <http://www.gnu.org/licenses/>.
                 <property name="margin_top">10</property>
                 <property name="margin_bottom">10</property>
                 <property name="has_entry">True</property>
+                <signal name="changed" handler="comboboxMisiones_changed" swapped="no"/>
                 <child internal-child="entry">
                   <object class="GtkEntry" id="comboboxtext-entry">
                     <property name="can_focus">False</property>
@@ -159,6 +160,24 @@ along with .  If not, see <http://www.gnu.org/licenses/>.
             <property name="expand">False</property>
             <property name="fill">True</property>
             <property name="position">1</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="button1">
+            <property name="label" translatable="yes">Lanzar Mision</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <property name="margin_left">10</property>
+            <property name="margin_right">10</property>
+            <property name="margin_top">10</property>
+            <property name="margin_bottom">10</property>
+            <signal name="clicked" handler="lanzarMision_cliked" swapped="no"/>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">2</property>
           </packing>
         </child>
       </object>

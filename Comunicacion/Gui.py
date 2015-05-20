@@ -22,7 +22,21 @@ class GuiGTK:
     def on_window1_delete_event(self, widget, event):
         Gtk.main_quit()
 
-        
+    def comboboxMisiones_changed(self, combo):
+        self.misiones_inst = self.glade.get_object('textview1')
+        buffer = self.misiones_inst.get_buffer()
+        print (combo.get_active_text())
+        if combo.get_active_text()==self.misiones[0]:
+            buffer.set_text(open('mision1', 'r').read())
+        elif combo.get_active_text()==self.misiones[1]:
+            buffer.set_text("Hola estoy en la mision 2")
+        elif combo.get_active_text()==self.misiones[2]:
+            buffer.set_text("Hola estoy en la mision 3")
+
+    def lanzarMision_cliked(self, widget):
+        print ('Lanzo la mision')
+
+
 if __name__ == "__main__":
     try:
         gg = GuiGTK()
